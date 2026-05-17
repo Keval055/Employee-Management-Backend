@@ -18,6 +18,19 @@ const userSchema = new mongoose.Schema({
       leaveDays: { type: Number, default: 0 },
     },
   ],
+  tasks: [
+    {
+      title: { type: String, required: true },
+      description: { type: String, required: true },
+      status: {
+        type: String,
+        enum: ["pending", "completed"],
+        default: "pending",
+      },
+      assignedAt: { type: Date, default: Date.now },
+      completedAt: { type: Date, default: null },
+    },
+  ],
   image: { type: String },
   address: { type: String, required: true },
   linkedInId: { type: String, required: true },

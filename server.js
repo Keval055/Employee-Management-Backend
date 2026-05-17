@@ -8,6 +8,7 @@ const superUserRoutes = require("./routes/super-user-routes");
 const connectDb = require("./database/db");
 const userRoutes = require("./routes/user-routes");
 const leaveRoutes = require("./routes/leaveRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 dotenv.config()
 
 const port = process.env.PORT || 5000;
@@ -28,6 +29,7 @@ connectDb();
 app.use("/api/superuser", superUserRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/leaves", leaveRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.use((req, res, next) => {
   return next(new Error("Could Not Find the Route"));
